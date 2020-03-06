@@ -26,11 +26,17 @@ namespace NarangeAdvancement.JSON_pop
         /// <summary>
         /// JSONが全体が格納された最上位ディレクトリ
         /// </summary>
-        public TagList Root { get; } = new TagList();
+        public TagList Root { get; set; } = new TagList();
         
         public json_window()
         {
             InitializeComponent();
+            MainWindow a = new MainWindow();
+            var b = a.L_title;
+            for (int i = 0; i < b.Count; i++)
+            {
+                main_listview.Items.Add(b.Value[i]);
+            }
         }
 
         private void add_button_Click(object sender, RoutedEventArgs e)
@@ -104,6 +110,25 @@ namespace NarangeAdvancement.JSON_pop
                 Root.Add(new TagCompound(tag));
                 Console.WriteLine(Root);
             }
+
+            Close();
+        }
+
+        /// <summary>
+        /// 中身がNULLか?
+        /// </summary>
+        /// <param name="tag">検査するTagList</param>
+        /// <returns></returns>
+        public bool isNull(TagList tag)
+        {
+            if (tag.ToString() == "[]") return true;
+            return false;
+        }
+
+        public void init(TagList tag)
+        {
+            Root = tag;
+            return;
         }
 
     }

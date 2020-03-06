@@ -25,7 +25,7 @@
         <Label Content="Parent" Margin="19,95,31,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
         <TextBox x:Name="parent_textbox" Grid.Column="1" Height="25" Margin="10,96,10,0" TextWrapping="Wrap" Background="#FF3C3C3C" VerticalAlignment="Top" Foreground="White"/>
         <Button x:Name="json_button_1" Content="JSON" Grid.Column="1" Margin="180,18,10,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Click="json_button_1_Click"/>
-        <Button x:Name="json_button_2" Content="JSON" Grid.Column="1" Margin="180,57,10,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5"/>
+        <Button x:Name="json_button_2" Content="JSON" Grid.Column="1" Margin="180,57,10,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Click="json_button_2_Click"/>
         <Border BorderBrush="#FF1DFFFF" BorderThickness="1" Grid.Column="3" Height="120" Margin="10,10,10,0" VerticalAlignment="Top" Background="#FF555555"/>
         <Image Grid.Column="3" HorizontalAlignment="Left" Height="48" Margin="27,46,0,0" VerticalAlignment="Top" Width="48" Source="Media/normal.png"/>
         <Image Grid.Column="3" HorizontalAlignment="Left" Height="48" Margin="202,46,0,0" VerticalAlignment="Top" Width="48" Source="Media/goal.png"/>

@@ -23,15 +23,47 @@ namespace NarangeAdvancement
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// 生成するコードの最上階
+        /// </summary>
+        public TagCompound Adv { get; } = new TagCompound();
+
+        public TagCompound L_icon { get; } = new TagCompound("icon");
+
+        public TagList L_title = new TagList();
+
+        public TagCompound L_description { get; } = new TagCompound("description");
+
+        public TagCompound L_rewards { get; } = new TagCompound("rewards");
+
+        public TagCompound L_criteria { get; } = new TagCompound("criteria");
+
+        public TagCompound L_requirements { get; } = new TagCompound("requirements");
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void json_button_1_Click(object sender, RoutedEventArgs e)
+        private async void json_button_1_Click(object sender, RoutedEventArgs e)
         {
-            JSON_pop.json_window a = new JSON_pop.json_window();
-            a.ShowDialog();
+            JSON_pop.json_window title_json = new JSON_pop.json_window();
+            await Task.Run(() =>
+            {
+                if (title_json.ShowDialog() == true)
+                {
+
+                }
+            });
+            L_title = title_json.Root;
+            if (title_json.isNull(title_json.Root) == false) title_textbox.Text = title_json.ToString();
+        }
+
+        private void json_button_2_Click(object sender, RoutedEventArgs e)
+        {
+            JSON_pop.json_window description_json = new JSON_pop.json_window();
+            description_json.ShowDialog();
+            description_textbox.Text = description_json.Root.ToString();
         }
     }
 }
