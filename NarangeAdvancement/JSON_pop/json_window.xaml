@@ -8,20 +8,14 @@
         Background="#202023"
         Title="json_window" Height="450" Width="560.773">
     <Grid>
-        <TreeView x:Name="main_treeview" Margin="10,184,10,56" Background="#FF323232" Foreground="#DDFFFFFF"/>
-        <TreeView x:Name="treeview_2"
-            MinWidth="220" Margin="51,184,-51,56">
-            
-            
-        </TreeView>
         <Button x:Name="done_button" Content="DONE" Margin="10,377,10,10" Height="Auto" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Click="done_button_Click"/>
         <Button x:Name="add_button" Content="ADD" Margin="10,139,292,248" Height="Auto" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Click="add_button_Click"/>
         <Button x:Name="remove_button" Content="REMOVE" Margin="292,139,10,248" Height="Auto" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Click="remove_button_Click"/>
         <Label Content="Text" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Width="59"/>
         <TextBox x:Name="text_textbox" Height="25" Margin="74,10,10,0" TextWrapping="Wrap" Background="#FF3C3C3C" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Color" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Width="59"/>
-        <ComboBox x:Name="color_combobox" Margin="74,50,292,0" VerticalAlignment="Top" BorderBrush="White" Background="#FF474747" IsReadOnly="True" Foreground="White" Height="25">
-            <ComboBoxItem Content="unset"/>
+        <ComboBox x:Name="color_combobox" Margin="74,50,292,0" VerticalAlignment="Top" BorderBrush="White" Background="#FF474747" IsReadOnly="True" Foreground="White" Height="28">
+            <ComboBoxItem Content="unset" IsSelected="True"/>
             <ComboBoxItem Content="reset"/>
             <ComboBoxItem Content="white"/>
             <ComboBoxItem Content="black"/>
@@ -41,7 +35,7 @@
             <ComboBoxItem Content="yellow" Foreground="#FFFFF40F"/>
         </ComboBox>
         <Label Content="Type" HorizontalAlignment="Left" Margin="293,50,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Width="59"/>
-        <ComboBox x:Name="type_combobox" Margin="356,50,10,0" VerticalAlignment="Top" BorderBrush="White" Background="#FF474747" IsReadOnly="True" Foreground="White" Height="25">
+        <ComboBox x:Name="type_combobox" Margin="356,50,10,0" VerticalAlignment="Top" BorderBrush="White" Background="#FF474747" IsReadOnly="True" Foreground="White" Height="28">
             <ComboBoxItem Content="text" IsSelected="True"/>
             <ComboBoxItem Content="translate"/>
         </ComboBox>
@@ -83,7 +77,9 @@
             <ComboBoxItem Content="false"/>
         </ComboBox>
         <Label Content="Obfus" HorizontalAlignment="Left" Margin="447,95,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Width="41"/>
+        <ListView x:Name="main_listview" Margin="10,185,10,57" Foreground="#DDFFFFFF" Background="#FF555555">
 
+        </ListView>
 
     </Grid>
 </Window>

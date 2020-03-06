@@ -23,41 +23,87 @@ namespace NarangeAdvancement.JSON_pop
     /// </summary>
     public partial class json_window : Window
     {
-
-        private TagCompound root = new TagCompound();
+        /// <summary>
+        /// JSONが全体が格納された最上位ディレクトリ
+        /// </summary>
+        public TagList Root { get; } = new TagList();
         
-
         public json_window()
         {
             InitializeComponent();
-            List<TreeView> c = new List<TreeView>();
-            TreeView tr = new TreeView();
-            TreeView tra = new TreeView();
-            tr.Items.Add("A");
-            tra.Items.Add("ABC");
-            tr.Items.Add(tra);
-            c.Add(tr);
-            treeview_2.ItemsSource = c;
         }
 
         private void add_button_Click(object sender, RoutedEventArgs e)
         {
+            TagCompound tag = new TagCompound();
+            if (text_textbox.Text.Length != 0 && string.IsNullOrWhiteSpace(text_textbox.Text) != true)
+            {
+                // "text":""
+                string type = string.Format("{0}", type_combobox.Text);
+                string text = string.Format("{0}", text_textbox.Text);
+                tag.Add(new TagString(type, text));
 
+                if (color_combobox.Text != "unset")
+                {
+                    string setter = "color";
+                    string value = color_combobox.Text;
+                    tag.Add(new TagString(setter, value));
+                }
+
+                if (bold_combobox.Text != "unset")
+                {
+                    string setter = "bold";
+                    string value = bold_combobox.Text;
+                    tag.Add(new TagString(setter, value));
+                }
+
+                if (italic_combobox.Text != "unset")
+                {
+                    string setter = "italic";
+                    string value = italic_combobox.Text;
+                    tag.Add(new TagString(setter, value));
+                }
+
+                if (underline_combobox.Text != "unset")
+                {
+                    string setter = "underlined";
+                    string value = underline_combobox.Text;
+                    tag.Add(new TagString(setter, value));
+                }
+
+                if (strike_combobox.Text != "unset")
+                {
+                    string setter = "strikethrough";
+                    string value = strike_combobox.Text;
+                    tag.Add(new TagString(setter, value));
+                }
+
+                if (obfus_combobox.Text != "unset")
+                {
+                    string setter = "obfuscated";
+                    string value = obfus_combobox.Text;
+                    tag.Add(new TagString(setter, value));
+                }
+
+                main_listview.Items.Add(tag);
+            }
         }
 
         private void remove_button_Click(object sender, RoutedEventArgs e)
         {
-
+            main_listview.Items.Remove(main_listview.SelectedItem);
         }
 
         private void done_button_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        public TagCompound Root //外部からのroot呼び出し
-        {
-            get { return this.root; }
+            Root.Clear();
+            int len = main_listview.Items.Count;
+            for (int i = 0; i < len; i++)
+            {
+                TagCompound tag = (TagCompound)main_listview.Items[i];
+                Root.Add(new TagCompound(tag));
+                Console.WriteLine(Root);
+            }
         }
 
     }
