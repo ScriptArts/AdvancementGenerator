@@ -27,23 +27,27 @@ namespace NarangeAdvancement.JSON_pop
         /// <summary>
         /// JSONが全体が格納された最上位ディレクトリ
         /// </summary>
-        public TagList Root { get; set; } = new TagList();
+        public TagList Root { get; private set; } = new TagList();
 
         /// <summary>
         /// "text":のValueだけを並べた変数
         /// </summary>
-        public string Detail = "";
+        public string Detail { get; private set; } = "";
+
+        /// <summary>
+        /// Doneボタンでウィンドウが閉じられたか？
+        /// </summary>
+        public bool SafeClose { get; private set; } = new bool();
 
         Regex RegularExpression = new Regex("\"text\":\"(?<value>.*?)\"[,|}]", RegexOptions.IgnoreCase | RegexOptions.Singleline);
         
         public json_window()
         {
             InitializeComponent();
-            Console.WriteLine("a");
+            SafeClose = false;
             for (int i = 0; i < Root.Count; i++)
             {
                 main_listview.Items.Add(Root.Value[i]);
-                Console.WriteLine("aaa");
             }
         }
 
@@ -123,6 +127,7 @@ namespace NarangeAdvancement.JSON_pop
                 Detail += match_detail;
             }
             Console.WriteLine("生成されたJSON: " + Root);
+            SafeClose = true;
             Close();
         }
 
