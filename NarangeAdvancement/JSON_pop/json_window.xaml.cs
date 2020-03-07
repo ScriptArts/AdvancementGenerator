@@ -34,7 +34,7 @@ namespace NarangeAdvancement.JSON_pop
         /// </summary>
         public string Detail = "";
 
-        Regex RegularExpression = new Regex("\"text\":\"(?<value>.*?)\"[,|\\S]", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+        Regex RegularExpression = new Regex("\"text\":\"(?<value>.*?)\"[,|}]", RegexOptions.IgnoreCase | RegexOptions.Singleline);
         
         public json_window()
         {
@@ -117,19 +117,10 @@ namespace NarangeAdvancement.JSON_pop
                 TagCompound tag = (TagCompound)main_listview.Items[i];
                 Root.Add(new TagCompound(tag));
 
+                //結果表示用にテキストだけの文字列だけ抽出(正規表現)
                 Match match = RegularExpression.Match(main_listview.Items[i].ToString());
-                string mv = match.Value;
-                mv = mv.Replace("\"text\":\"", "");
-                Console.WriteLine(mv);
-                try
-                {
-                    mv = mv.Substring(0, mv.LastIndexOf("}"));
-                    mv = mv.Substring(0, mv.LastIndexOf("\""));
-                }
-                catch
-                {
-                }
-                Detail += mv;
+                string match_detail = match.Groups["value"].Value;
+                Detail += match_detail;
             }
             Console.WriteLine("生成されたJSON: " + Root);
             Close();
