@@ -40,6 +40,8 @@ namespace NarangeAdvancement
 
         public TagCompound L_requirements { get; } = new TagCompound("requirements");
 
+        //public JSON_pop.json_window title_json = new JSON_pop.json_window();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -50,13 +52,19 @@ namespace NarangeAdvancement
             JSON_pop.json_window title_json = new JSON_pop.json_window();
             await Task.Run(() =>
             {
-                if (title_json.ShowDialog() == true)
+                this.Dispatcher.Invoke((Action)(() =>
                 {
-
-                }
+                    title_json.init(L_title);
+                    for (int i = 0; i < title_json.Root.Count; i++)
+                    {
+                        title_json.main_listview.Items.Add(title_json.Root.Value[i]);
+                    }
+                    title_json.ShowDialog();
+                }));
             });
             L_title = title_json.Root;
-            if (title_json.isNull(title_json.Root) == false) title_textbox.Text = title_json.ToString();
+            title_textbox.Text = title_json.Detail;
+            //if (title_json.isNull(title_json.Root) == false) title_textbox.Text = L_title.ToString();
         }
 
         private void json_button_2_Click(object sender, RoutedEventArgs e)

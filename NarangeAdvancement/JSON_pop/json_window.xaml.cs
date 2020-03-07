@@ -15,6 +15,7 @@ using System.IO;
 using OrangeNBT;
 using OrangeNBT.NBT;
 using OrangeNBT.NBT.IO;
+using System.Text.RegularExpressions;
 
 namespace NarangeAdvancement.JSON_pop
 {
@@ -27,15 +28,22 @@ namespace NarangeAdvancement.JSON_pop
         /// JSONが全体が格納された最上位ディレクトリ
         /// </summary>
         public TagList Root { get; set; } = new TagList();
+
+        /// <summary>
+        /// "text":のValueだけを並べた変数
+        /// </summary>
+        public string Detail = "";
+
+        Regex RegularExpression = new Regex("\"text\":\"(?<value>.*?)\"[,|\\S]", RegexOptions.IgnoreCase | RegexOptions.Singleline);
         
         public json_window()
         {
             InitializeComponent();
-            MainWindow a = new MainWindow();
-            var b = a.L_title;
-            for (int i = 0; i < b.Count; i++)
+            Console.WriteLine("a");
+            for (int i = 0; i < Root.Count; i++)
             {
-                main_listview.Items.Add(b.Value[i]);
+                main_listview.Items.Add(Root.Value[i]);
+                Console.WriteLine("aaa");
             }
         }
 
@@ -108,9 +116,22 @@ namespace NarangeAdvancement.JSON_pop
             {
                 TagCompound tag = (TagCompound)main_listview.Items[i];
                 Root.Add(new TagCompound(tag));
-                Console.WriteLine(Root);
-            }
 
+                Match match = RegularExpression.Match(main_listview.Items[i].ToString());
+                string mv = match.Value;
+                mv = mv.Replace("\"text\":\"", "");
+                Console.WriteLine(mv);
+                try
+                {
+                    mv = mv.Substring(0, mv.LastIndexOf("}"));
+                    mv = mv.Substring(0, mv.LastIndexOf("\""));
+                }
+                catch
+                {
+                }
+                Detail += mv;
+            }
+            Console.WriteLine("生成されたJSON: " + Root);
             Close();
         }
 
@@ -128,6 +149,7 @@ namespace NarangeAdvancement.JSON_pop
         public void init(TagList tag)
         {
             Root = tag;
+            Console.WriteLine("aa");
             return;
         }
 

@@ -19,11 +19,11 @@
             <Label Content="Title" Foreground="#DDFFFFFF" Margin="9,9,310,86"/>
 
         </Border>
-        <TextBox x:Name="title_textbox" Height="25" Margin="10,21,100,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Foreground="White" Background="#FF3C3C3C" IsEnabled="False" />
+        <TextBox x:Name="title_textbox" Height="25" Margin="0,21,100,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Foreground="White" Background="#FF3C3C3C" IsEnabled="False" />
         <Label Content="Description" Margin="19,57,3,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Height="24"/>
-        <TextBox x:Name="description_textbox" Grid.Column="1" Height="25" Margin="10,58,100,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FF3C3C3C" Foreground="White" IsEnabled="False"/>
+        <TextBox x:Name="description_textbox" Grid.Column="1" Height="25" Margin="2,58,100,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FF3C3C3C" Foreground="White" IsEnabled="False"/>
         <Label Content="Parent" Margin="19,95,31,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-        <TextBox x:Name="parent_textbox" Grid.Column="1" Height="25" Margin="10,96,10,0" TextWrapping="Wrap" Background="#FF3C3C3C" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="parent_textbox" Grid.Column="1" Height="25" Margin="2,96,10,0" TextWrapping="Wrap" Background="#FF3C3C3C" VerticalAlignment="Top" Foreground="White"/>
         <Button x:Name="json_button_1" Content="JSON" Grid.Column="1" Margin="180,18,10,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Click="json_button_1_Click"/>
         <Button x:Name="json_button_2" Content="JSON" Grid.Column="1" Margin="180,57,10,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Click="json_button_2_Click"/>
         <Border BorderBrush="#FF1DFFFF" BorderThickness="1" Grid.Column="3" Height="120" Margin="10,10,10,0" VerticalAlignment="Top" Background="#FF555555"/>
