@@ -1,0 +1,23 @@
+﻿<Window x:Class="NarangeAdvancement.Rewards.reward"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NarangeAdvancement.Rewards"
+        mc:Ignorable="d"
+        Background="#202023"
+        Title="reward" Height="183" Width="411.08">
+    <Grid>
+        <RadioButton x:Name="recipes_radiobutton" Content="Recipes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFFF0EFF" Background="#FFFF01DC" IsChecked="True" Checked="recipes_radiobutton_Checked" AutomationProperties.HelpText="Textテキストボックスに" />
+        <RadioButton x:Name="loot_radiobutton" Content="Loot" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFFF0EFF" Background="#FFFF01DC" IsChecked="True" Checked="loot_radiobutton_Checked" />
+        <RadioButton x:Name="experience_radiobutton" Content="Experience" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFFF0EFF" Background="#FFFF01DC" IsChecked="True" Checked="experience_radiobutton_Checked" />
+        <RadioButton x:Name="function_radiobutton" Content="Function" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFFF0EFF" Background="#FFFF01DC" IsChecked="True" Checked="function_radiobutton_Checked" />
+        <TextBox x:Name="text_textbox" Height="25" Margin="229,16,10,0" TextWrapping="Wrap" Background="#FF3C3C3C" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="num_textbox" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="text_input" CommandManager.PreviewExecuted="text_execute" Height="25" Margin="229,56,10,0" TextWrapping="Wrap" Background="#FF3C3C3C" VerticalAlignment="Top" Foreground="White" IsEnabled="False"/>
+        <Button x:Name="cancel_button" Content="CANCEL" Margin="10,115,212,9" Height="Auto" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Click="cancel_button_Click" />
+        <Button x:Name="add_button" Content="ADD" Margin="212,115,10,9" Height="Auto" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Click="add_button_Click" />
+        <Label Content="Text" Margin="181,16,174,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+        <Label Content="Value" Margin="181,56,174,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+
+    </Grid>
+</Window>

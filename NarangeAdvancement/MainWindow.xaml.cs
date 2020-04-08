@@ -40,11 +40,17 @@ namespace NarangeAdvancement
 
         public TagCompound L_requirements { get; } = new TagCompound("requirements");
 
-        //public JSON_pop.json_window title_json = new JSON_pop.json_window();
-
         public MainWindow()
         {
             InitializeComponent();
+
+            /*string directory = System.IO.File.ReadAllText("\\items_list.txt", Encoding.GetEncoding("shift_jis"));
+            char[] sep = new char[] { ',' };
+            string[] spli = directory.Split(sep);
+            foreach (var s in spli)
+            {
+                iconimage_combobox.Items.Add(s);
+            }*/
         }
 
         private async void json_button_1_Click(object sender, RoutedEventArgs e)
@@ -67,7 +73,6 @@ namespace NarangeAdvancement
                     }
                 }));
             });
-            //if (title_json.isNull(title_json.Root) == false) title_textbox.Text = L_title.ToString();
         }
 
         private async void json_button_2_Click(object sender, RoutedEventArgs e)
@@ -90,6 +95,12 @@ namespace NarangeAdvancement
                     }
                 }));
             });
+        }
+
+        private void reward_add_button_Click(object sender, RoutedEventArgs e)
+        {
+            Rewards.reward rewards = new Rewards.reward();
+            rewards.ShowDialog();
         }
     }
 }

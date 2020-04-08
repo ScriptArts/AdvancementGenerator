@@ -47,34 +47,22 @@
         <Label Content="Announce to chat" Grid.Column="1" Margin="10,198,10,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
         <Label Content="Hidden" Grid.Column="1" Margin="10,231,10,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
         <Border BorderBrush="#FF1DFFFF" BorderThickness="1" Grid.Column="3" Height="120" Margin="10,153,10,0" VerticalAlignment="Top" Background="#FF555555"/>
-        <Label Content="Icon image" Margin="27,165,380,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Height="24" Grid.Column="3"/>
+        <Label Content="ID for Icon" Margin="27,165,380,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Height="24" Grid.Column="3"/>
         <Label Content="Background directory" Margin="27,231,380,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Height="24" Grid.Column="3"/>
-        <TextBox x:Name="icon_img_textbox" Grid.Column="3" Height="25" Margin="158,164,121,0" TextWrapping="Wrap" Background="#FF3C3C3C" VerticalAlignment="Top" Foreground="White" IsEnabled="False"/>
+
         <TextBox x:Name="background_dictionary_texbox" Grid.Column="3" Height="25" Margin="158,233,23,0" TextWrapping="Wrap" Background="#FF3C3C3C" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="icon_nbt_textbox" Content="Icon NBT" Margin="27,198,380,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Height="24" Grid.Column="3"/>
         <TextBox Grid.Column="3" Height="25" Margin="158,198,23,0" TextWrapping="Wrap" Background="#FF3C3C3C" VerticalAlignment="Top" Foreground="White"/>
-        <Button x:Name="item_button" Content="ITEM" Grid.Column="3" Margin="435,163,23,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5"/>
+
         <Border BorderBrush="#FF1DFFFF" BorderThickness="1" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="175" Margin="10,295,0,0" Background="#FF555555" VerticalAlignment="Top" Width="433"/>
         <Border BorderBrush="#FF1DFFFF" BorderThickness="1" Height="175" Margin="90,295,10,0" Background="#FF555555" VerticalAlignment="Top" Grid.Column="3"/>
         <Border BorderBrush="#FF1DFFFF" BorderThickness="1" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="10,494,0,10" Width="761"/>
         <Button x:Name="generate_button" Content="GENERATE" Grid.Column="3" Margin="417,513,10,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5"/>
         <Button x:Name="copy_button" Content="COPY" Grid.Column="3" Margin="417,565,10,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5"/>
-        <ListView x:Name="reward_listview" Grid.ColumnSpan="4" Height="110" Margin="19,349,476,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" ForceCursor="True" Grid.RowSpan="2" AutomationProperties.IsColumnHeader="True">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Reward}" Header="Reward" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Proparty}" Header="Proparty" Width="200"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ComboBox x:Name="reward_combobox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="19,305,0,0" VerticalAlignment="Top" Width="206" BorderBrush="White" Background="#FF474747" IsReadOnly="True" Foreground="White">
-            <ComboBoxItem Content="Recipes" Foreground="White"/>
-            <ComboBoxItem Content="Loot" Foreground="White"/>
-            <ComboBoxItem Content="Experience" Foreground="White"/>
-            <ComboBoxItem Content="Function" Foreground="White"/>
-        </ComboBox>
+
+
         <Button x:Name="reward_remove_button" Content="REMOVE" Grid.Column="1" Margin="246,305,475,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Grid.ColumnSpan="3"/>
-        <Button x:Name="reward_add_button" Content="ADD" Grid.Column="1" Margin="147,305,24,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5"/>
+        <Button x:Name="reward_add_button" Content="ADD" Grid.Column="1" Margin="0,305,24,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5" Click="reward_add_button_Click" HorizontalAlignment="Right" Width="94"/>
         <ListView x:Name="trigger_listview" Grid.Column="3" HorizontalAlignment="Left" Height="110" Margin="101,349,0,0" VerticalAlignment="Top" Width="409">
             <ListView.View>
                 <GridView>
@@ -85,6 +73,10 @@
         </ListView>
         <Button x:Name="trigger_add_button" Content="ADD" Grid.Column="3" Margin="317,305,122,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5"/>
         <Button x:Name="trigger_remove_button" Content="REMOVE" Grid.Column="3" Margin="416,305,23,0" VerticalAlignment="Top" Height="28" Background="#FF6C6C6C" BorderBrush="#FFFF34B5"/>
+        <TextBox Grid.Column="3" Height="25" Margin="158,163,23,0" TextWrapping="Wrap" Background="#FF3C3C3C" VerticalAlignment="Top" Foreground="White" Text="minecraft:stone"/>
+        <ListView x:Name="reward_listview" Margin="19,349,475,165" Foreground="#DDFFFFFF" Background="#FF555555" Grid.ColumnSpan="4"/>
+        <Label Content="Rewards setting" Margin="19,307,123,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Grid.ColumnSpan="2"/>
+
 
 
 

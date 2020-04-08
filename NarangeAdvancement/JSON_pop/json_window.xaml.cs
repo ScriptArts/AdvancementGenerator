@@ -105,6 +105,8 @@ namespace NarangeAdvancement.JSON_pop
 
                 main_listview.Items.Add(tag);
             }
+
+            guireset();
         }
 
         private void remove_button_Click(object sender, RoutedEventArgs e)
@@ -132,21 +134,28 @@ namespace NarangeAdvancement.JSON_pop
         }
 
         /// <summary>
-        /// 中身がNULLか?
+        /// データ引継ぎ機能付き初期化
         /// </summary>
-        /// <param name="tag">検査するTagList</param>
-        /// <returns></returns>
-        public bool isNull(TagList tag)
-        {
-            if (tag.ToString() == "[]") return true;
-            return false;
-        }
-
+        /// <param name="tag"></param>
         public void init(TagList tag)
         {
             Root = tag;
-            Console.WriteLine("aa");
             return;
+        }
+
+        /// <summary>
+        /// GUIをリセット(ListView以外)
+        /// </summary>
+        private void guireset()
+        {
+            text_textbox.Text = null;
+            type_combobox.SelectedIndex = 0;
+            color_combobox.SelectedIndex = 0;
+            bold_combobox.SelectedIndex = 0;
+            italic_combobox.SelectedIndex = 0;
+            underline_combobox.SelectedIndex = 0;
+            strike_combobox.SelectedIndex = 0;
+            obfus_combobox.SelectedIndex = 0;
         }
 
     }
